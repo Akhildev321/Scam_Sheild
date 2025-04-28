@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamShield - Cyber Protection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #6e48aa;
+            --secondary-color: #9d50bb;
+            --accent-color: #4776e6;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --cyber-teal: #00f5d4;
+            --cyber-purple: #9b5de5;
+            --cyber-pink: #f15bb5;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #16213e;
+            color: #e6e6e6;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: rgba(26, 26, 46, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--cyber-teal) !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: #e6e6e6 !important;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link.active {
+            color: var(--cyber-teal) !important;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--cyber-teal);
+            animation: underline 0.3s ease-out;
+        }
+        
+        @keyframes underline {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+            position: relative;
+        }
+        
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--cyber-teal);
+            animation: pulse 2s infinite;
+        }
+        
+        .feature-card {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            perspective: 1000px;
+            border: none;
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(105, 48, 195, 0.3) 0%,
+                rgba(32, 158, 145, 0.1) 100%
+            );
+            border-radius: inherit;
+            z-index: -1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(151, 71, 255, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--cyber-teal);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+            color: var(--cyber-pink);
+        }
+        
+        .scam-indicator {
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .scam-high {
+            color: #ff4d6d;
+        }
+        
+        .scam-medium {
+            color: #ff9e00;
+        }
+        
+        .scam-low {
+            color: #38b000;
+        }
+        
+        .tab-content {
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 0 0 10px 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(113, 47, 255, 0.2);
+            border-top: none;
+        }
+        
+        .nav-tabs {
+            border-bottom: 1px solid rgba(113, 47, 255, 0.2);
+        }
+        
+        .nav-tabs .nav-link {
+            background: rgba(26, 26, 46, 0.5);
+            border: none;
+            color: #e6e6e6 !important;
+            font-weight: 500;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: rgba(26, 26, 46, 0.7);
+            border-bottom: 3px solid var(--cyber-teal);
+            color: var(--cyber-teal) !important;
+            font-weight: 600;
+        }
+        
+        .report-btn {
+            background-color: var(--cyber-pink);
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .report-btn:hover {
+            background-color: #d91a6b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(241, 91, 181, 0.3);
+        }
+        
+        .awareness-card {
+            border-left: 5px solid var(--cyber-teal);
+            transition: all 0.3s ease;
+        }
+        
+        .awareness-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--cyber-teal),
+                transparent
+            );
+        }
+        
+        /* Cyber Background Elements */
+        .cyber-bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .cyber-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px dashed var(--cyber-teal);
+            opacity: 0.1;
+            top: 20%;
+            left: 10%;
+            animation: rotate 30s linear infinite;
+        }
+        
+        .cyber-triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 300px solid var(--cyber-purple);
+            opacity: 0.05;
+            bottom: -100px;
+            right: -50px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        .cyber-line {
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--cyber-pink),
+                transparent
+            );
+            opacity: 0.1;
+            bottom: 30%;
+            animation: scanline 6s linear infinite;
+        }
+        
+        /* Scanner Visualization */
+        .scanner-visualization {
+            margin: 2rem auto;
+            width: 100%;
+            max-width: 600px;
+            height: 200px;
+            background-color: rgba(30, 30, 60, 0.5);
+            border: 1px solid var(--cyber-teal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scanner-light {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--cyber-pink),
+                transparent
+            );
+            box-shadow: 0 0 10px var(--cyber-pink);
+            animation: scan 2s linear infinite;
+        }
+        
+        .scanned-text {
+            padding: 1rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+            color: var(--cyber-teal);
+            text-shadow: 0 0 5px var(--cyber-teal);
+        }
+        
+        /* Loading Animations */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.05; }
+            50% { transform: scale(1.2); opacity: 0.1; }
+        }
+        
+        @keyframes scanline {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+        
+        @keyframes scan {
+            0% { top: 0; opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { top: 100%; opacity: 1; }
+        }
+        
+        @keyframes cyberGlow {
+            0% { box-shadow: 0 0 5px var(--cyber-teal); }
+            50% { box-shadow: 0 0 20px var(--cyber-pink); }
+            100% { box-shadow: 0 0 5px var(--cyber-teal); }
+        }
+        
+        .loading-verification {
+            animation: cyberGlow 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .loading-verification::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 45%,
+                rgba(113, 47, 255, 0.3) 50%,
+                transparent 55%
+            );
+            animation: shine 1.5s infinite;
+        }
+        
+        @keyframes shine {
+            to {
+                transform: translate(50%, 50%);
+            }
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .feature-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cyber Background Elements -->
+    <div class="cyber-bg-elements">
+        <div class="cyber-circle"></div>
+        <div class="cyber-triangle"></div>
+        <div class="cyber-line"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-shield-alt me-2"></i>ScamShield
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#scanner">Scanner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#verifier">Verifier</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#awareness">Awareness</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#report">Report</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title animate__animated animate__fadeInDown">Protect Yourself From Online Scams</h1>
+            <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">ScamShield helps you detect suspicious messages, verify contacts, and report scams to protect others.</p>
+            <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                <a href="#scanner" class="btn btn-light btn-lg px-4 me-2 me-md-3 mb-2 mb-md-0">Scan a Message</a>
+                <a href="#report" class="btn btn-outline-light btn-lg px-4">Report a Scam</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Scanner Section -->
+        <section id="scanner" class="mb-5 pt-4">
+            <h2 class="text-center mb-4 animate__animated animate__fadeIn">Scam Text Scanner</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card feature-card animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <p class="text-muted">Paste suspicious text from emails, SMS, or WhatsApp messages to check for scam indicators</p>
+                            <form id="scannerForm">
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="suspiciousText" rows="5" placeholder="Paste suspicious message here..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-search me-2"></i>Analyze Text
+                                </button>
+                            </form>
+                            
+                            <!-- Loading Animation -->
+                            <div id="scannerLoading" class="text-center mt-4 d-none">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-3">Analyzing for scam patterns...</p>
+                                <div class="progress mt-3" style="height: 5px;">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+                                </div>
+                                
+                                <!-- Scanner Visualization -->
+                                <div class="scanner-visualization mt-4">
+                                    <div class="scanner-light"></div>
+                                    <div class="scanned-text" id="scannedTextPreview"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Results -->
+                            <div id="scannerResults" class="mt-4 d-none animate__animated animate__fadeIn">
+                                <h5>Analysis Results:</h5>
+                                <div class="alert" id="scamLevelAlert">
+                                    <p class="scam-indicator mb-2">Scam Probability: <span id="scamProbability">Low</span></p>
+                                    <div class="progress mb-3">
+                                        <div id="scamProgress" class="progress-bar" role="progressbar" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                                <div id="scamIndicators" class="mb-3"></div>
+                                <div id="suggestedActions" class="alert alert-light"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verifier Section -->
+        <section id="verifier" class="mb-5 pt-4">
+            <h2 class="text-center mb-4">Email/Phone Number Verifier</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <ul class="nav nav-tabs" id="verifierTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="email-tab" data-bs-toggle="tab" data-bs-target="#email-verifier" type="button">Email</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="phone-tab" data-bs-toggle="tab" data-bs-target="#phone-verifier" type="button">Phone Number</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="verifierTabContent">
+                                <div class="tab-pane fade show active" id="email-verifier" role="tabpanel">
+                                    <form id="emailVerifierForm">
+                                        <div class="mb-3">
+                                            <label for="emailInput" class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter email to verify" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            <i class="fas fa-envelope me-2"></i>Check Email
+                                        </button>
+                                    </form>
+                                    <div id="emailResults" class="mt-4 d-none">
+                                        <h5>Verification Results:</h5>
+                                        <div class="alert" id="emailAlert"></div>
+                                        <div id="emailDetails"></div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="phone-verifier" role="tabpanel">
+                                    <form id="phoneVerifierForm">
+                                        <div class="mb-3">
+                                            <label for="phoneInput" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phoneInput" placeholder="Enter phone number with country code" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">
+                                            <i class="fas fa-phone me-2"></i>Check Number
+                                        </button>
+                                    </form>
+                                    <div id="phoneResults" class="mt-4 d-none">
+                                        <h5>Verification Results:</h5>
+                                        <div class="alert" id="phoneAlert"></div>
+                                        <div id="phoneDetails"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awareness Section -->
+        <section id="awareness" class="mb-5 pt-4">
+            <h2 class="text-center mb-4">Scam Awareness</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 awareness-card animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-fish feature-icon me-3"></i>
+                                <h5 class="card-title mb-0">Phishing Scams</h5>
+                            </div>
+                            <p class="card-text">Learn how to identify fake emails and websites pretending to be from legitimate companies to steal your information.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#phishingModal">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 awareness-card animate__animated animate__fadeInUp animate__delay-1s">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-chart-line feature-icon me-3"></i>
+                                <h5 class="card-title mb-0">Investment Scams</h5>
+                            </div>
+                            <p class="card-text">Be wary of "get rich quick" schemes promising high returns with no risk. These often lead to significant financial losses.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#investmentModal">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 awareness-card animate__animated animate__fadeInUp animate__delay-2s">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-heart feature-icon me-3"></i>
+                                <h5 class="card-title mb-0">Romance Scams</h5>
+                            </div>
+                            <p class="card-text">Scammers create fake profiles on dating sites to form relationships and eventually ask for money for various fabricated reasons.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#romanceModal">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#" class="btn btn-outline-primary animate__animated animate__pulse animate__infinite">View All Scam Types</a>
+            </div>
+        </section>
+
+        <!-- Report Section -->
+        <section id="report" class="mb-5 pt-4">
+            <h2 class="text-center mb-4">Report a Scam</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <p class="text-muted">Help protect others by reporting scams you've encountered. All reports are anonymous.</p>
+                            <form id="reportForm">
+                                <div class="mb-3">
+                                    <label for="scamType" class="form-label">Scam Type</label>
+                                    <select class="form-select" id="scamType" required>
+                                        <option value="" selected disabled>Select scam type</option>
+                                        <option value="phishing">Phishing</option>
+                                        <option value="investment">Investment Scam</option>
+                                        <option value="romance">Romance Scam</option>
+                                        <option value="tech-support">Tech Support Scam</option>
+                                        <option value="lottery">Lottery/Sweepstakes Scam</option>
+                                        <option value="job">Job Offer Scam</option>
+                                        <option value="bank">Bank Fraud</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="scamDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="scamDescription" rows="4" placeholder="Describe what happened..." required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactInfo" class="form-label">Contact Information Used by Scammer (if any)</label>
+                                    <input type="text" class="form-control" id="contactInfo" placeholder="Email, phone number, website, etc.">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="scamDate" class="form-label">Date of Incident</label>
+                                    <input type="date" class="form-control" id="scamDate">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="screenshotUpload" class="form-label">Upload Screenshots (Optional)</label>
+                                    <input class="form-control" type="file" id="screenshotUpload" accept="image/*" multiple>
+                                </div>
+                                <button type="submit" class="btn report-btn text-white w-100">
+                                    <i class="fas fa-paper-plane me-2"></i>Submit Report
+                                </button>
+                            </form>
+                            <div id="reportSuccess" class="alert alert-success mt-3 d-none animate__animated animate__fadeIn">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Thank you for your report! Your submission helps protect others from similar scams.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h5><i class="fas fa-shield-alt me-2"></i>ScamShield</h5>
+                    <p>A community-driven platform to detect, prevent, and report online scams.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Home</a></li>
+                        <li class="mb-2"><a href="#scanner" class="text-white">Text Scanner</a></li>
+                        <li class="mb-2"><a href="#verifier" class="text-white">Contact Verifier</a></li>
+                        <li><a href="#awareness" class="text-white">Scam Awareness</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Safety Tips</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Report to Authorities</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">FAQ</a></li>
+                        <li><a href="#" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 ScamShield. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Awareness Modals -->
+    <div class="modal fade" id="phishingModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Phishing Scams</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>What is phishing?</h6>
+                            <p>Phishing is a type of online scam where criminals impersonate legitimate organizations via email, text message, advertisement or other means in order to steal sensitive information.</p>
+                            
+                            <h6 class="mt-4">How to spot phishing attempts:</h6>
+                            <ul>
+                                <li>Urgent or threatening language demanding immediate action</li>
+                                <li>Requests for personal information like passwords or SSN</li>
+                                <li>Poor spelling and grammar</li>
+                                <li>Generic greetings like "Dear Customer" instead of your name</li>
+                                <li>Suspicious links that don't match the organization's real website</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-secondary text-white h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Example Phishing Email</h6>
+                                    <div class="p-3 bg-dark rounded">
+                                        <p class="mb-1"><strong>From:</strong> support@yourbank.com</p>
+                                        <p class="mb-1"><strong>Subject:</strong> Urgent: Your account has been locked</p>
+                                        <hr>
+                                        <p>Dear Customer,</p>
+                                        <p>We've detected unusual activity on your account. To prevent your account from being permanently locked, please verify your information by clicking the link below:</p>
+                                        <p><a href="#" class="text-danger">http://yourbank-secure.com/login</a></p>
+                                        <p>If you don't verify within 24 hours, your account will be suspended.</p>
+                                        <p>Sincerely,<br>Your Bank Security Team</p>
+                                    </div>
+                                    <p class="mt-3 text-warning"><i class="fas fa-exclamation-triangle me-2"></i>This is a fake email designed to steal your login credentials.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h6 class="mt-4">Protection tips:</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Never click links in unsolicited emails</li>
+                                <li>Verify website URLs before entering information</li>
+                                <li>Use two-factor authentication</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Keep software and browsers updated</li>
+                                <li>Look for HTTPS and padlock icon in browser</li>
+                                <li>When in doubt, contact the company directly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other modals would follow similar structure -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Initialize 3D Shield Animation
+        function init3DShield() {
+            const container = document.createElement('div');
+            container.id = 'shield3d';
+            container.style.position = 'fixed';
+            container.style.bottom = '20px';
+            container.style.right = '20px';
+            container.style.width = '150px';
+            container.style.height = '150px';
+            container.style.zIndex = '1000';
+            document.body.appendChild(container);
+            
+            // Three.js initialization would go here
+            // This is a placeholder for actual 3D implementation
+        }
+        
+        // Sample scam keywords and patterns
+        const scamKeywords = [
+            'urgent', 'immediately', 'account suspended', 'verify your account', 'limited time offer',
+            'free gift', 'click here', 'congratulations', 'you have won', 'lottery winner',
+            'inheritance', 'unclaimed money', 'tax refund', 'security alert', 'password expired',
+            'suspicious activity', 'bank account', 'credit card', 'social security', 'IRS',
+            'paypal', 'amazon', 'netflix', 'microsoft', 'apple', 'bitcoin', 'crypto', 'investment opportunity',
+            '100% guaranteed', 'no risk', 'high returns', 'double your money', 'work from home',
+            'easy money', 'financial freedom', 'secret system', 'act now', 'don\'t miss out'
+        ];
+        
+        const scamPatterns = [
+            { pattern: /http:\/\//, description: 'Unsecure HTTP link (should be HTTPS)' },
+            { pattern: /bit\.ly|goo\.gl|tinyurl\.com|ow\.ly/, description: 'URL shortener used (common in scams)' },
+            { pattern: /[\u{1F600}-\u{1F64F}]/u, description: 'Suspicious use of emojis' },
+            { pattern: /[^\x00-\x7F]/, description: 'Non-ASCII characters (common in fake URLs)' },
+            { pattern: /account\s*verification/i, description: 'Account verification request' },
+            { pattern: /(click|log)\s*(here|below)/i, description: 'Urging to click a link' }
+        ];
+        
+        // Sample blacklist data
+        const emailBlacklist = ['scammer@example.com', 'fraud@fake.org', 'phish@badguy.net'];
+        const phoneBlacklist = ['+15551234567', '+447700900123', '+85212345678'];
+        
+        // Initialize application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize 3D shield (would be more complex in production)
+            init3DShield();
+            
+            // Scanner form submission
+            document.getElementById('scannerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const text = document.getElementById('suspiciousText').value;
+                
+                // Show loading state
+                document.getElementById('scannerLoading').classList.remove('d-none');
+                document.getElementById('scannerResults').classList.add('d-none');
+                document.getElementById('scannedTextPreview').textContent = text.substring(0, 200) + (text.length > 200 ? '...' : '');
+                
+                // Simulate analysis delay
+                setTimeout(() => {
+                    const results = analyzeText(text);
+                    displayScannerResults(results);
+                    document.getElementById('scannerLoading').classList.add('d-none');
+                }, 2000);
+            });
+            
+            // Email verifier form submission
+            document.getElementById('emailVerifierForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('emailInput').value;
+                
+                // Show loading state
+                const btn = e.target.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Checking...';
+                btn.disabled = true;
+                
+                // Add loading animation to form
+                e.target.classList.add('loading-verification');
+                
+                setTimeout(() => {
+                    const results = verifyEmail(email);
+                    displayEmailResults(results);
+                    
+                    // Reset button
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    e.target.classList.remove('loading-verification');
+                }, 1500);
+            });
+            
+            // Phone verifier form submission
+            document.getElementById('phoneVerifierForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const phone = document.getElementById('phoneInput').value;
+                
+                // Show loading state
+                const btn = e.target.querySelector('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Checking...';
+                btn.disabled = true;
+                
+                // Add loading animation to form
+                e.target.classList.add('loading-verification');
+                
+                setTimeout(() => {
+                    const results = verifyPhone(phone);
+                    displayPhoneResults(results);
+                    
+                    // Reset button
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    e.target.classList.remove('loading-verification');
+                }, 1500);
+            });
+            
+            // Report form submission
+            document.getElementById('reportForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitReport();
+            });
+            
+            // Animate elements when they come into view
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.feature-card, .awareness-card');
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Initial check
+        });
+        
+        function analyzeText(text) {
+            const indicators = [];
+            let scamScore = 0;
+            
+            // Check for keywords
+            const foundKeywords = scamKeywords.filter(keyword => 
+                text.toLowerCase().includes(keyword.toLowerCase())
+            );
+            
+            if (foundKeywords.length > 0) {
+                scamScore += foundKeywords.length * 5;
+                indicators.push({
+                    type: 'keywords',
+                    items: foundKeywords,
+                    description: `Found ${foundKeywords.length} scam-related keywords`
+                });
+            }
+            
+            // Check for patterns
+            const foundPatterns = scamPatterns.filter(pattern => 
+                pattern.pattern.test(text)
+            );
+            
+            if (foundPatterns.length > 0) {
+                scamScore += foundPatterns.length * 10;
+                indicators.push({
+                    type: 'patterns',
+                    items: foundPatterns.map(p => p.description),
+                    description: `Found ${foundPatterns.length} suspicious patterns`
+                });
+            }
+            
+            // Check for URLs
+            const urlRegex = /https?:\/\/[^\s]+/g;
+            const urls = text.match(urlRegex) || [];
+            
+            if (urls.length > 0) {
+                scamScore += urls.length * 7;
+                indicators.push({
+                    type: 'urls',
+                    items: urls,
+                    description: `Found ${urls.length} embedded URLs`
+                });
+            }
+            
+            // Determine scam level
+            let level, levelClass, suggestions;
+            if (scamScore > 50) {
+                level = 'High';
+                levelClass = 'scam-high';
+                suggestions = [
+                    'This message is highly suspicious and likely a scam.',
+                    'Do not click any links or provide any personal information.',
+                    'Delete the message and block the sender if possible.',
+                    'Report this message to the appropriate platform.'
+                ];
+            } else if (scamScore > 20) {
+                level = 'Medium';
+                levelClass = 'scam-medium';
+                suggestions = [
+                    'This message shows several scam indicators.',
+                    'Be very cautious about any requests in the message.',
+                    'Verify the sender through official channels before responding.',
+                    'Do not provide any personal or financial information.'
+                ];
+            } else {
+                level = 'Low';
+                levelClass = 'scam-low';
+                suggestions = [
+                    'No obvious scam indicators found, but remain cautious.',
+                    'Always verify unexpected messages with the supposed sender.',
+                    'Be wary of any requests for personal information.',
+                    'When in doubt, don\'t respond to the message.'
+                ];
+            }
+            
+            return {
+                score: Math.min(scamScore, 100),
+                level,
+                levelClass,
+                indicators,
+                suggestions
+            };
+        }
+        
+        function displayScannerResults(results) {
+            const resultsDiv = document.getElementById('scannerResults');
+            const probabilitySpan = document.getElementById('scamProbability');
+            const progressBar = document.getElementById('scamProgress');
+            const indicatorsDiv = document.getElementById('scamIndicators');
+            const suggestionsDiv = document.getElementById('suggestedActions');
+            const alertDiv = document.getElementById('scamLevelAlert');
+            
+            // Update scam level
+            probabilitySpan.textContent = results.level;
+            probabilitySpan.className = `scam-indicator ${results.levelClass}`;
+            progressBar.style.width = `${results.score}%`;
+            progressBar.className = `progress-bar bg-${results.levelClass.split('-')[1]}`;
+            alertDiv.className = `alert alert-${results.levelClass.split('-')[1]}`;
+            
+            // Display indicators
+            indicatorsDiv.innerHTML = '';
+            if (results.indicators.length > 0) {
+                indicatorsDiv.innerHTML = '<h6>Scam Indicators Found:</h6>';
+                results.indicators.forEach(indicator => {
+                    const indicatorDiv = document.createElement('div');
+                    indicatorDiv.className = 'mb-2';
+                    indicatorDiv.innerHTML = `
+                        <p class="mb-1"><strong>${indicator.description}</strong></p>
+                        <ul class="list-unstyled ms-3">
+                            ${indicator.items.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    `;
+                    indicatorsDiv.appendChild(indicatorDiv);
+                });
+            } else {
+                indicatorsDiv.innerHTML = '<p>No obvious scam indicators found.</p>';
+            }
+            
+            // Display suggestions
+            suggestionsDiv.innerHTML = `
+                <h6>Recommended Actions:</h6>
+                <ul>
+                    ${results.suggestions.map(s => `<li>${s}</li>`).join('')}
+                </ul>
+            `;
+            
+            // Show results with animation
+            resultsDiv.classList.remove('d-none');
+            resultsDiv.classList.add('animate__animated', 'animate__fadeIn');
+        }
+        
+        function verifyEmail(email) {
+            const isBlacklisted = emailBlacklist.includes(email.toLowerCase());
+            const domain = email.split('@')[1] || '';
+            const isSuspiciousDomain = /(fake|scam|phish)/i.test(domain);
+            
+            return {
+                email,
+                isBlacklisted,
+                isSuspiciousDomain,
+                domain
+            };
+        }
+        
+        function displayEmailResults(results) {
+            const resultsDiv = document.getElementById('emailResults');
+            const alertDiv = document.getElementById('emailAlert');
+            const detailsDiv = document.getElementById('emailDetails');
+            
+            if (results.isBlacklisted || results.isSuspiciousDomain) {
+                alertDiv.className = 'alert alert-danger';
+                alertDiv.innerHTML = `
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    ${results.isBlacklisted ? 
+                        'WARNING: This email is on our scam blacklist!' : 
+                        'CAUTION: This email domain appears suspicious.'}
+                `;
+            } else {
+                alertDiv.className = 'alert alert-success';
+                alertDiv.innerHTML = `
+                    <i class="fas fa-check-circle me-2"></i>
+                    No issues found with this email address in our database.
+                `;
+            }
+            
+            detailsDiv.innerHTML = `
+                <p><strong>Email:</strong> ${results.email}</p>
+                <p><strong>Domain:</strong> ${results.domain}</p>
+                <p class="text-muted">Note: Our database contains known scam emails but may not include all fraudulent addresses.</p>
+            `;
+            
+            resultsDiv.classList.remove('d-none');
+            resultsDiv.classList.add('animate__animated', 'animate__fadeIn');
+        }
+        
+        function verifyPhone(phone) {
+            const isBlacklisted = phoneBlacklist.includes(phone);
+            const isInternational = !phone.startsWith('+1') && !phone.startsWith('1');
+            
+            return {
+                phone,
+                isBlacklisted,
+                isInternational
+            };
+        }
+        
+        function displayPhoneResults(results) {
+            const resultsDiv = document.getElementById('phoneResults');
+            const alertDiv = document.getElementById('phoneAlert');
+            const detailsDiv = document.getElementById('phoneDetails');
+            
+            if (results.isBlacklisted) {
+                alertDiv.className = 'alert alert-danger';
+                alertDiv.innerHTML = `
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    WARNING: This phone number is on our scam blacklist!
+                `;
+            } else if (results.isInternational) {
+                alertDiv.className = 'alert alert-warning';
+                alertDiv.innerHTML = `
+                    <i class="fas fa-globe me-2"></i>
+                    CAUTION: This is an international number. Be extra cautious with unsolicited calls.
+                `;
+            } else {
+                alertDiv.className = 'alert alert-success';
+                alertDiv.innerHTML = `
+                    <i class="fas fa-check-circle me-2"></i>
+                    No issues found with this phone number in our database.
+                `;
+            }
+            
+            detailsDiv.innerHTML = `
+                <p><strong>Phone Number:</strong> ${results.phone}</p>
+                <p class="text-muted">Note: Our database contains known scam numbers but may not include all fraudulent numbers.</p>
+            `;
+            
+            resultsDiv.classList.remove('d-none');
+            resultsDiv.classList.add('animate__animated', 'animate__fadeIn');
+        }
+        
+        function submitReport() {
+            // In a real app, this would send to backend
+            const scamType = document.getElementById('scamType').value;
+            const description = document.getElementById('scamDescription').value;
+            
+            // Show success message
+            const successDiv = document.getElementById('reportSuccess');
+            successDiv.classList.remove('d-none');
+            
+            // Reset form
+            document.getElementById('reportForm').reset();
+            
+            // Add celebration animation
+            successDiv.classList.add('animate__animated', 'animate__tada');
+            
+            // Scroll to success message
+            setTimeout(() => {
+                successDiv.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+            
+            // Remove animation after it plays
+            setTimeout(() => {
+                successDiv.classList.remove('animate__animated', 'animate__tada');
+            }, 1000);
+            
+            console.log('Report submitted:', { scamType, description });
+            
+            // In a real implementation, we would send this data to the backend
+            // fetch('/api/reports', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({
+            //         type: scamType,
+            //         description,
+            //         contactInfo: document.getElementById('contactInfo').value,
+            //         date: document.getElementById('scamDate').value
+            //     })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     document.getElementById('reportSuccess').classList.remove('d-none');
+            //     document.getElementById('reportForm').reset();
+            // })
+            // .catch(error => {
+            //     alert('Error submitting report. Please try again.');
+            // });
+        }
+    </script>
+</body>
+</html>
